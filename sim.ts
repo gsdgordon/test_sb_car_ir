@@ -8,7 +8,7 @@ namespace pxsim {
         }
 
         export function onPressEvent(button: number, body: RefAction): void {
-            // no-op in simulator (or queue callback if you want)
+            // no-op in simulator
         }
     }
 }
