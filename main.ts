@@ -136,7 +136,10 @@ namespace StemBit_IR {
 
     // Returns command byte (0..255), or -1 if nothing decoded
     function readNecCommand(): number {
-        // Wait for leader low pulse
+    
+        // quick exit if idle
+        if (pins.digitalReadPin(_pin) == 1) return -1
+
         const low = pins.pulseIn(_pin, PulseValue.Low, TIMEOUT_US)
         if (low < LEADER_LOW_MIN) return -1
 
