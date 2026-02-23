@@ -1,0 +1,15 @@
+{
+  "name": "stembit_ir",
+  "version": "1.1.6",
+  "description": "StemBit IR remote receiver helper (TypeScript; micro:bit v1/v2 compatible)",
+  "dependencies": {
+    "core": "*"
+  },
+  "files": [
+    "main.ts"
+  ],
+  "testFiles": [
+    "test.ts"
+  ],
+  "public": false
+}
