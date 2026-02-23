@@ -1,15 +1,14 @@
-// Simulator implementation for StemBit_IR shims.
-// The micro:bit simulator can't receive real IR pulses, so these are no-ops.
+// Simulator implementations for StemBit_IR.
+// The micro:bit simulator cannot receive real IR pulses, so these are safe no-ops.
 
-namespace pxsim.StemBit_IR {
-    // pin is a number (DigitalPin enum)
-    export function init(pin: number): void {
-        // no-op in simulator
-    }
+namespace pxsim {
+    export namespace StemBit_IR {
+        export function init(_pin: number): void {
+            // no-op in simulator
+        }
 
-    // btn is a number (RemoteButton enum), handler is a RefAction in sim runtime
-    export function onPressEvent(btn: number, handler: any): void {
-        // no-op in simulator
-        // You could extend this to trigger handlers via a custom sim UI.
+        export function onPressEvent(_btn: number, _handler: RefAction): void {
+            // no-op in simulator
+        }
     }
 }
