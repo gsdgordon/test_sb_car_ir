@@ -142,8 +142,6 @@ static void monitorIR() {
 /**
  * Register a handler for a remote button press.
  */
-//% blockId=ir_received_left_event
-//% block="on |%btn| button pressed"
 void onPressEvent(RemoteButton btn, Action body) {
     actions[btn].push_back(body);
 }
@@ -151,8 +149,6 @@ void onPressEvent(RemoteButton btn, Action body) {
 /**
  * Connect an IR receiver module output to the given pin.
  */
-//% blockId=ir_init
-//% block="connect ir receiver to %pin"
 void init(int pin) {
     rxPin = getPin(pin);
     if (!rxPin) return;

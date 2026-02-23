@@ -1,6 +1,6 @@
 {
     "name": "stembit-ir",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Stembit IR receiver extension (NEC) for micro:bit v1+v2",
     "license": "MIT",
     "dependencies": {
@@ -10,6 +10,7 @@
         "README.md",
         "main.ts",
         "enums.d.ts",
+        "shims.d.ts",
         "ir.cpp"
     ],
     "testFiles": [
