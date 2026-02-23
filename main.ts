@@ -74,7 +74,7 @@ namespace StemBit_IR {
 
     const BIT_HIGH_ONE_MIN = 1200
 
-    const TIMEOUT_US = 100000 // 100ms per pulse max
+    const TIMEOUT_US = 15000 // 100ms per pulse max
     const DEBOUNCE_MS = 100
 
     /**
@@ -94,13 +94,14 @@ namespace StemBit_IR {
 
         control.inBackground(() => {
             while (true) {
+            
                 const cmd = readNecCommand()
+            
                 if (cmd >= 0) {
                     fire(cmd)
-                } else {
-                    // Avoid tight spinning when there is no IR traffic
-                    control.waitMicros(2000)
                 }
+            
+                basic.pause(1)   // <<< REQUIRED YIELD
             }
         })
     }
