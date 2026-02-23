@@ -1,23 +1,19 @@
 {
-    "name": "stembit-ir",
-    "version": "1.1.4",
-    "description": "Stembit IR receiver extension (NEC) for micro:bit v1+v2",
-    "license": "MIT",
-    "dependencies": {
-        "core": "*"
-    },
-    "files": [
-        "README.md",
-        "main.ts",
-        "enums.d.ts",
-        "shims.d.ts",
-        "ir.cpp"
-    ],
-    "testFiles": [
-        "test.ts"
-    ],
-    "public": false,
-    "simFiles": [
-        "sim.ts"
-    ]
+  "name": "stembit_ir",
+  "version": "1.1.5",
+  "description": "StemBit IR extension",
+  "dependencies": {
+    "core": "*"
+  },
+  "files": [
+    "shims.d.ts",
+    "enums.d.ts",
+    "ir.cpp"
+  ],
+  "simFiles": [
+    "sim.ts"
+  ],
+  "testFiles": [
+    "test.ts"
+  ]
 }
