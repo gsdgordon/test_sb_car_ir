@@ -66,16 +66,16 @@ namespace StemBit_IR {
     let _lastMs = 0
 
     // Timing thresholds (microseconds) for NEC
-    const LEADER_LOW_MIN = 8000
-    const LEADER_HIGH_MIN = 3500
+    const LEADER_LOW_MIN = 7000
+    const LEADER_HIGH_MIN = 3000
 
     const REPEAT_HIGH_MIN = 1800
     const REPEAT_HIGH_MAX = 2800
 
-    const BIT_HIGH_ONE_MIN = 1200
+    const BIT_HIGH_ONE_MIN = 1000
 
     const TIMEOUT_US = 15000 // 100ms per pulse max
-    const DEBOUNCE_MS = 100
+    const DEBOUNCE_MS = 40
 
     /**
      * Connect IR receiver to a digital pin.
@@ -162,7 +162,7 @@ namespace StemBit_IR {
             const bLow = pins.pulseIn(_pin, PulseValue.Low, TIMEOUT_US)
             if (bLow === 0) return -1
             const bHigh = pins.pulseIn(_pin, PulseValue.High, TIMEOUT_US)
-            if (bHigh === 0) return -1
+            if (bHigh < 200) return -1   // ignore noise pulses
             if (bHigh >= BIT_HIGH_ONE_MIN) {
                 data |= (1 << i)
             }
@@ -178,6 +178,7 @@ namespace StemBit_IR {
         if (((addr ^ naddr) & 0xFF) !== 0xFF) return -1
         if (((cmd ^ ncmd) & 0xFF) !== 0xFF) return -1
 
+        control.waitMicros(3000)
         return cmd
     }
 }
